@@ -2,15 +2,107 @@
   outline: 1px solid red !important;
 }
 
+body {
+  background: linear-gradient(to top, #b3e5fc 0%, #ffffff 100%);
+  background-attachment: fixed;
+  padding: 10px 5%;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  /* margin: 10px 5%; */
+
+  /* 10 superior e inferior y 5 a los lados  */
+
+}
+
+.title {
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #b3e5fc;
+  color: darkgreen;
+  /*espacio solo abajo para separar */
+}
+
 .content {
   display: flex;
-}
-.image {
-  flex: 1;
-}
-.description {
-  flex: 2;
-}
-img {
+  justify-content: space-between;
   width: 100%;
+  /* Quitamos flex-wrap para que se mantengan en una línea */
+}
+
+.image {
+  display: flex;
+  flex: 1;
+  /* Hace que todas las imágenes ocupen el mismo espacio */
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 200px;
+  /* Reducimos un poco la altura para que las imágenes no se vean muy grandes */
+  margin: 0 5px;
+  /* Agregamos un pequeño margen entre imágenes */
+  /* Evita que las imágenes se desborden */
+
+  /* esto es mejor para que el alto se autoajuste*/
+  /* min-height: auto; */
+
+}
+
+.description {
+  flex: 1 1 300px ;
+  /* si crece 1 , si encoge 1 y tamaño minimo 300px */
+  min-width: 300px;
+  /* max-width: 100%; */
+  /* defino si es mas pequeño que pase a la otra linea*/
+  font-family: sans-serif;
+  font-size: 16px;
+  /* font-size: 1.2em; */
+  color: darkgreen;
+  padding: 2%;
+
+
+}
+
+.description::first-letter {
+  text-transform: uppercase; /* Asegura que sea mayúscula */
+  font-size: 2em; /* Tamaño grande, ajusta según necesidad */
+  color: darkgreen; /* Opcional: color diferente */
+  font-weight: bold; /* Opcional: negrita */
+  margin-right: 2px; /* Opcional: espacio a la derecha de la letra */
+}
+
+
+
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+  /* Esto mantendrá la proporción de la imagen sin cortarla */
+
+/* para moviles  */
+@media (max-width: 768px) {
+
+  /* esa medida es standar para moviles y tablets*/
+  .content {
+    flex-direction: column;
+  }
+    .image {
+    flex: 0 0 auto; /* Cambiamos a auto para que ocupe el ancho completo */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+  }
+    img {
+    width: 100%; /* La imagen ocupa el 100% del contenedor .image */
+    height: auto;
+  }
 }
